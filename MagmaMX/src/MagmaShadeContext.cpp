@@ -318,6 +318,40 @@ Point3 MagmaShadeContext::VectorFromNoScale( const Point3& p, RefFrame ifrom ) {
         return p;
     }
 }
+
+// 2024 Ben Lipman 9/21/2023
+Matrix3 MagmaShadeContext::MatrixTo( RefFrame ito ) {
+
+    switch( ito ) {
+    case REF_CAMERA:
+        return Matrix3();
+    case REF_OBJECT:
+        return m_toObject;
+    case REF_WORLD:
+        return m_toWorld;
+    default:
+        throw std::runtime_error( "MagmaShadeContext::MatrixTo() - Unknown RefFrame" );
+    }
+
+    return Matrix3();
+}
+
+Matrix3 MagmaShadeContext::MatrixFrom( RefFrame ifrom ) {
+    int nodeID;
+
+    switch( ifrom ) {
+    case REF_OBJECT:
+        return ( globContext && ( nodeID = NodeID() ) >= 0 ) ? globContext->GetRenderInstance( nodeID )->objToCam
+                                                             : Matrix3();
+    case REF_WORLD:
+        return ( globContext ) ? globContext->worldToCam : Matrix3();
+    case REF_CAMERA:
+    default:
+        return Matrix3();
+    }
+}
+
+
 #pragma warning( pop )
 
 } // namespace max3d

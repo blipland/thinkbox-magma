@@ -7,7 +7,7 @@ from conans import ConanFile, CMake
 
 VALID_MAX_CONFIGS: dict[tuple[str, str], set[str]] = {
     ('Visual Studio', '15'): { '2022' },
-    ('Visual Studio', '16'): { '2023' }
+    ('Visual Studio', '16'): { '2023', '2024' }
 }
 
 SETTINGS: dict[str, Any] = {
@@ -41,7 +41,7 @@ class MagmaMXConan(ConanFile):
     generators: str | list[str] = 'cmake_find_package'
     tool_requires: list[str] = TOOL_REQUIRES
     options: dict[str, Any] = {
-        'max_version': ['2022', '2023']
+        'max_version': ['2022', '2023','2024']
     }
     
     def requirements(self) -> None:
