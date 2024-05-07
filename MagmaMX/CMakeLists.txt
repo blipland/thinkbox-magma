@@ -24,14 +24,16 @@ target_include_directories( magmamx PUBLIC
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 	$<INSTALL_INTERFACE:include>
 )
- 
+
 file( GLOB_RECURSE H_FILES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
         "frantic/*.h"
         "frantic/*.hpp"
+        "PS/*.h"
 )
 
 file( GLOB_RECURSE CXX_FILES ${CMAKE_CURRENT_SOURCE}
     "src/*.cpp"
+    "PS/*.cpp"
 )
 
 target_sources( magmamx PRIVATE
