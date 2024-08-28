@@ -13,23 +13,24 @@ Special Thanks to:
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
- 
+
     1. Redistributions of source code must retain the above copyright notice,
        this list of conditions and the following disclaimer.
 
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS 
- IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
- THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
- PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS 
- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
- INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
- CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS
+ IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
 */
 
+#include <maxscript/UI/rollouts.h>
 
 class SchematicControl : public RolloutControl
 	{
@@ -49,12 +50,12 @@ class SchematicControl : public RolloutControl
 		static RolloutControl* create(Value* name, Value* caption, Value** keyparms, int keyparm_count)
 								{ return new SchematicControl (name, caption, keyparms, keyparm_count); }
 
-		classof_methods (SchematicControl, RolloutControl);	// macro
+		classof_methods( SchematicControl, RolloutControl ); // macro
 
 		// we do not supply this function and let a default implementation take over
 		// see ps_schematic.cpp for details:
 		void		collect(); // { delete this; }
-		void		sprin1(CharStream* s) { s->printf(_T("SchematicControl:%s"), name->to_string()); }
+		void		sprin1(CharStream* s) { s->printf(_T("BLIPLANDSchematicControl:%s"), name->to_string()); }
 		void		add_control(Rollout *ro, HWND parent, HINSTANCE hInstance, int& current_y);
 		LPCTSTR		get_control_class() { return SCHEMATIC_WINDOWCLASS; }
 		void		compute_layout(Rollout *ro, layout_data* pos) { }

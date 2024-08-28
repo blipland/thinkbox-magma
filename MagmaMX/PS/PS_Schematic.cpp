@@ -55,7 +55,7 @@ SchematicControl::SchematicControl(Value* name, Value* caption, Value** keyparms
 
 	backgroundColor = ColorMan()->GetColor(kBackground);
 	hbrBkGnd = CreateSolidBrush(backgroundColor);
-	controller = NULL;
+	//controller = NULL;
 	m_hBitmap = NULL;
 	m_maxBitMap = NULL;
 	bitmapPath = _T("");
@@ -150,7 +150,7 @@ LRESULT CALLBACK SchematicControl::WndProc(HWND hWnd, UINT msg, WPARAM wParam, L
 		case WM_KEYDOWN:
 			{
 			if (wParam == VK_F12) //VK_RETURN //VK_ESCAPE
-				MessageBox(NULL, _T("Helium, www.lumonix.net"), _T("Information"), 0);
+				MessageBox(NULL, _T("Schematic Control, thinkboxsoftware.com"), _T("Information"), 0);
 
 			ctrl->c_keyboardToMXS(wParam, false);
 			return (LRESULT)1; // we processed message
@@ -407,7 +407,7 @@ LRESULT SchematicControl::LButtonDown(int xPos, int yPos, int fwKeys)
 					arg_list[1] = Integer::intern(fromSocketID);
 					arg_list[2] = Integer::intern(socketType);
 					run_event_handler(parent_rollout, n_connectionStarted, arg_list, 3);
-					pop_value_local_array(arg_list);
+					//pop_value_local_array(arg_list);
 					pop_alloc_frame();
 					}
 
@@ -660,7 +660,7 @@ LRESULT SchematicControl::LButtonUp(int xPos, int yPos, int fwKeys)
 			arg_list[1] = Integer::intern(fromSocketID);
 			arg_list[2] = Integer::intern(socketType);
 			run_event_handler(parent_rollout, n_connectToEmpty, arg_list, 3);
-			pop_value_local_array(arg_list);
+			//pop_value_local_array(arg_list);
 			pop_alloc_frame();
 			}
 		}
@@ -1003,7 +1003,7 @@ LRESULT SchematicControl::mouseMoved(int xPos, int yPos, int fwKeys)
 		arg_list[0] = Integer::intern( (getSocketOwnerID(connectionSocket) + 1) );	// +1 to keep mxs 1-based
 		arg_list[1] = Integer::intern( (connectionSocket->ID + 1) );				// +1 to keep mxs 1-based
 		run_event_handler(parent_rollout, n_socketValueChanged, arg_list, 2);
-		pop_value_local_array(arg_list);
+		//pop_value_local_array(arg_list);
 		pop_alloc_frame();
 		}
 
@@ -3786,7 +3786,7 @@ void SchematicControl::c_keyboardToMXS(WPARAM code, bool up)
 	else
 		run_event_handler(parent_rollout, n_keyboardUp, &vl.arg, 1);
 
-	pop_value_locals();
+	//pop_value_locals();
 	pop_alloc_frame();
 }
 
@@ -3891,7 +3891,7 @@ void SchematicControl::c_NodeClicked(int nodeIndex)
 	vl.arg = Integer::intern(nodeIndex+1); // +1 because MXS is 1-based
 	run_event_handler(parent_rollout, n_nodeClicked, &vl.arg, 1);
 
-	pop_value_locals();		// if you used arguments, i think you need to use this to clean it up
+	//pop_value_locals();		// if you used arguments, i think you need to use this to clean it up
 	pop_alloc_frame();		// cleans up push_alloc_frame i'm guessing
 	}
 
@@ -3918,7 +3918,7 @@ void SchematicControl::c_ConnectionChanged(int fromNodeIndex, int toNodeIndex, i
 
 	run_event_handler(parent_rollout, n_connectionChanged, arg_list, 6);
 
-	pop_value_local_array(arg_list);	// notice how we use array here
+	//pop_value_local_array(arg_list);	// notice how we use array here
 	pop_alloc_frame();					// cleans up push_alloc_frame i'm guessing
 	}
 

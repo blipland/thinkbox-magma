@@ -13,20 +13,20 @@ Special Thanks to:
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
- 
+
     1. Redistributions of source code must retain the above copyright notice,
        this list of conditions and the following disclaimer.
 
- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS 
- IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
- THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR 
- PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS 
- BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
- CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
- SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
- INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
- CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
- ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
+ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS
+ IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS OR CONTRIBUTORS
+ BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  POSSIBILITY OF SUCH DAMAGE.
 */
 
@@ -39,7 +39,8 @@ modification, are permitted provided that the following conditions are met:
 	Includes and defines
    =========================================================================== */
 
-#define _WIN32_WINDOWS 0x500		// this was set to x400, but we need a higher windows version to support mouse wheel scrolling
+//#define _WIN32_WINDOWS 0x500 // this was set to x400, but we need a higher windows version to support mouse wheel
+                               // scrolling
 #define WHEEL_DELTA 120				// precision of mouse wheel
 
 #define NODEMOVEDRAWTH 5;
@@ -49,7 +50,7 @@ modification, are permitted provided that the following conditions are met:
 
 
 #include <maxscript/maxscript.h>
-#include <maxscript\maxwrapper\mxsobjects.h>
+#include <maxscript/maxwrapper/mxsobjects.h>
 #include <maxscript/compiler/parser.h>
 #include <maxscript/foundation/3dmath.h>	// for Point2Value
 #include <maxscript/foundation/numbers.h>	// for intern
@@ -110,7 +111,7 @@ visible_class (SchematicControl)	// Macro
 
 #include "PS_SchematicControl.h"
 
-visible_class_instance (SchematicControl, "SchematicControl")	// Macro for RolloutControls
+visible_class_instance (SchematicControl, "BLIPLANDSchematicControl")	// Macro for RolloutControls
 
 
 
